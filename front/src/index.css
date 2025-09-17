@@ -1,0 +1,37 @@
+body {
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.fullHW {
+  height: 100%;
+  width: 100%;
+}
+
+.fullH {
+  height: 100%;
+}
+
+.fullW {
+  width: 100%;
+}
+
+.noBO {
+  border: none !important;
+  outline: none !important;
+}
+
+.noMP {
+  margin: 0 !important;
+  padding: 0 !important;
+}
