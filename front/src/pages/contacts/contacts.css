@@ -1,0 +1,27 @@
+.tableTag {
+  width: 90px;
+  display: block;
+  text-align: center;
+}
+
+.popOverCont {
+  width: 110px;
+}
+
+.popOverCont div {
+  margin-bottom: 7px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.popSizeCont {
+  width: 100px;
+}
+
+.popSizeCont .ant-radio-wrapper {
+  margin-bottom: 7px;
+}
+
+.contactsOptions {
+  padding: 10px 0 !important;
+}

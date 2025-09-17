@@ -8,6 +8,12 @@ import Head from "./pages/global/nav";
 import Sidbar from "./pages/global/sidbar";
 import "./app.css";
 import dashboardLoader from "./Loaders/dashboardLoader";
+import Team from "./pages/team/Team";
+import teamLoader from "./Loaders/teamLoader";
+import contactsLoader from "./Loaders/contactsLoader";
+import invoicesLoader from "./Loaders/invoicesLoader";
+import contacts from "./pages/contacts/contacts";
+import invoices from "./pages/invoices/invoices";
 
 const { Header, Footer, Content } = Layout;
 
@@ -19,7 +25,22 @@ const myRouter = createBrowserRouter([
       {
         index: true,
         Component: dashboard,
-        loader: dashboardLoader
+        loader: dashboardLoader,
+      },
+      {
+        path: "team",
+        Component: Team,
+        loader: teamLoader,
+      },
+      {
+        path: "contacts",
+        Component: contacts,
+        loader: contactsLoader,
+      },
+      {
+        path: "invoices",
+        Component: invoices,
+        loader: invoicesLoader,
       },
     ],
   },
@@ -27,30 +48,43 @@ const myRouter = createBrowserRouter([
 
 function App() {
   const [dark, setDark] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <ConfigProvider
       theme={{
         algorithm: dark ? [theme.darkAlgorithm] : [theme.defaultAlgorithm],
         token: {
-          colorBgBase: dark ? "#101624" : "#fff",
           colorTextBase: dark ? "#fff" : "#000",
-          // colorPrimary: "#00f"
+          colorPrimary: "#6870fa",
+          colorSuccess: "#4cceac",
         },
         components: {
           Layout: {
             headerBg: "transparent",
-            siderBg: "#152448",
+            siderBg: "transparent",
+          },
+          Table: {
+            headerBg: "#6870fa",
+            footerBg: "#6870fa",
+            headerSplitColor: "transparent",
+            headerSortHoverBg: "#2d3059",
+            headerSortActiveBg: "#2d3059",
           },
         },
       }}
     >
-      <Layout className="fullH">
-        <Sider style={{ border: "1px solid red" }}>
-          <Sidbar />
+      <Layout>
+        <Sider
+          onCollapse={() => setCollapsed(!collapsed)}
+          width={220}
+          className="sider"
+          collapsible={true}
+        >
+          <Sidbar collapsed={collapsed} />
         </Sider>
         <Layout className="innerLayout">
-          <Header className="noMP" style={{ border: "1px solid red" }}>
+          <Header className="noMP">
             <Head setDark={setDark} dark={dark} />
           </Header>
           <Content>

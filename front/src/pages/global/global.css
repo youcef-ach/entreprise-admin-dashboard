@@ -1,17 +1,30 @@
 .search {
-    width: 15%;
+  width: 15%;
 }
 
 .headerIcon {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.headerIcon:hover {
+  color: #6870fa;
 }
 
 .profile-pic {
-    height: 60px;
-    width: 60px;
-    border-radius: 30px;
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
 }
 
-.sidBarFlex {
-    
+.sideMenu {
+  width: 220px;
+  padding: 8px 0;
+  border: none !important;
+  background-color: transparent;
+}
+
+.ant-layout-sider-trigger {
+  position: static !important;
+  background-color: transparent !important;
 }

@@ -12,8 +12,7 @@ function header() {
     <Flex
       justify="space-between"
       align="center"
-      className="fullHW"
-      style={{ border: "2px solid green" }}
+      className="fullW"
     >
       <Flex align="center" className="search">
         <Input.Search placeholder="search"></Input.Search>
