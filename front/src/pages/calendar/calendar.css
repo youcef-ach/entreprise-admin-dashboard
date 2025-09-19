@@ -1,0 +1,27 @@
+.eventsList {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: 10px;
+  background-color: rgb(20, 20, 20);
+}
+
+.cal {
+  flex-basis: 0;
+  flex-grow: 5;
+  flex-shrink: 1;
+}
+
+.ant-picker-calendar-header {
+  padding-right: 10px !important;
+}
+
+.cal .calBadge {
+  border-radius: 5px;
+}
+
+.event {
+  padding: 12px;
+  background-color: rgb(45, 48, 89);
+  cursor: pointer;
+}

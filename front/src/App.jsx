@@ -14,6 +14,9 @@ import contactsLoader from "./Loaders/contactsLoader";
 import invoicesLoader from "./Loaders/invoicesLoader";
 import contacts from "./pages/contacts/contacts";
 import invoices from "./pages/invoices/invoices";
+import form from "./pages/nUserForm/form";
+import calendar from "./pages/calendar/calendar";
+import calendarLoader from "./Loaders/calendarLoader";
 
 const { Header, Footer, Content } = Layout;
 
@@ -42,6 +45,15 @@ const myRouter = createBrowserRouter([
         Component: invoices,
         loader: invoicesLoader,
       },
+      {
+        path: "create_user",
+        Component: form,
+      },
+      {
+        path: "calendar",
+        Component: calendar,
+        loader: calendarLoader,
+      },
     ],
   },
 ]);
@@ -53,9 +65,9 @@ function App() {
   return (
     <ConfigProvider
       theme={{
-        algorithm: dark ? [theme.darkAlgorithm] : [theme.defaultAlgorithm],
+        algorithm: [theme.darkAlgorithm],
         token: {
-          colorTextBase: dark ? "#fff" : "#000",
+          colorTextBase: "#fff",
           colorPrimary: "#6870fa",
           colorSuccess: "#4cceac",
         },

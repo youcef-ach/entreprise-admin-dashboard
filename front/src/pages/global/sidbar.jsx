@@ -51,12 +51,12 @@ function sidbar() {
       key: "20",
       children: [
         {
-          label: <a href="#">Profile Form</a>,
+          label: <a href="/create_user">Profile Form</a>,
           icon: <UserOutlined />,
           key: "21",
         },
         {
-          label: <a href="#">Calendar</a>,
+          label: <a href="/calendar">Calendar</a>,
           icon: <CalendarOutlined />,
           key: "22",
         },
