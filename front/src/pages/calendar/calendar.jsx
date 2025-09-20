@@ -1,11 +1,28 @@
-import { Badge, Calendar, Flex, Button, Typography, Empty } from "antd";
+import {
+  Badge,
+  Calendar,
+  Flex,
+  Button,
+  Typography,
+  Modal,
+  Popover,
+  Form,
+  Input,
+  Select,
+} from "antd";
 import { useLoaderData } from "react-router-dom";
 import "./calendar.css";
 import { useEffect, useRef, useState } from "react";
+import { DownOutlined, CloseOutlined } from "@ant-design/icons";
+import { useForm } from "antd/es/form/Form";
 
 export default function calendar() {
-  const data = useLoaderData();
+  const [data, setData] = useState(useLoaderData());
   const [mode, setMode] = useState("month");
+  const [open, setOpen] = useState(false);
+  const [form] = useForm();
+
+  const selectedDate = useRef(null);
 
   const [events, setEvents] = useState(() => {
     let today = new Date();
@@ -34,6 +51,24 @@ export default function calendar() {
     if (events.length)
       return (
         <div className="cellCont fullH">
+          <Popover
+            content={
+              <div className="popOver">
+                <Button
+                  onClick={() => {
+                    selectedDate.current = date;
+                    setOpen(true);
+                  }}
+                >
+                  Add
+                </Button>
+              </div>
+            }
+            className="addEvent"
+            placement="bottom"
+          >
+            <DownOutlined />
+          </Popover>
           <Flex
             className="fullW"
             vertical
@@ -45,17 +80,104 @@ export default function calendar() {
               <Badge
                 key={i}
                 className="fullW calBadge"
-                status="success"
+                status={item.type}
                 text={item.title}
               />
             ))}
           </Flex>
         </div>
       );
+    else
+      return (
+        <Popover
+          mouseEnterDelay={0}
+          content={
+            <div className="popOver">
+              <Button
+                onClick={() => {
+                  selectedDate.current = date;
+                  setOpen(true);
+                }}
+              >
+                Add
+              </Button>
+            </div>
+          }
+          placement="bottom"
+          className="addEvent"
+        >
+          <DownOutlined />
+        </Popover>
+      );
   };
+
+  const typeOptions = [
+    { label: "important", value: "error" },
+    { label: "normal", value: "success" },
+  ];
 
   return (
     <>
+      <Modal
+        title="Add event"
+        open={open}
+        onOk={() => {
+          form
+            .validateFields()
+            .then(() => {
+              form.submit();
+              setOpen(false);
+            })
+            .catch(() => null);
+        }}
+        onCancel={() => {
+          setOpen(false);
+          form.resetFields();
+        }}
+      >
+        <Form
+          className="modalForm"
+          form={form}
+          onFinish={(values) => {
+            const mydate =
+              selectedDate.current.year() +
+              "-" +
+              (selectedDate.current.month() + 1).toString().padStart(2, "0") +
+              "-" +
+              selectedDate.current.date().toString().padStart(2, "0");
+            const newEvent = {
+              date: mydate,
+              title: values.title,
+              type: values.type,
+            };
+            setData([...data, newEvent]);
+            const date =
+              selectedDate.current.year() +
+              "-" +
+              (selectedDate.current.month() + 1).toString().padStart(2, "0") +
+              "-" +
+              selectedDate.current.date().toString().padStart(2, "0");
+            setEvents(
+              [...data, newEvent].filter((item) => {
+                return item.date == date;
+              })
+            );
+          }}
+        >
+          <Form.Item
+            name="title"
+            rules={[{ required: true, message: "required" }]}
+          >
+            <Input placeholder="event title"></Input>
+          </Form.Item>
+          <Form.Item
+            name="type"
+            rules={[{ required: true, message: "required" }]}
+          >
+            <Select placeholder="type" options={typeOptions}></Select>
+          </Form.Item>
+        </Form>
+      </Modal>
       <Flex
         className="fullW subHeaderFlex"
         vertical
@@ -75,7 +197,11 @@ export default function calendar() {
           align="stretch"
           gap={12}
         >
-          <Flex className="fullW" justify="space-between" align="center">
+          <Flex
+            className="fullW listHeader"
+            justify="space-between"
+            align="center"
+          >
             <Typography.Title level={4} style={{ margin: 0 }}>
               Events
             </Typography.Title>
@@ -86,15 +212,25 @@ export default function calendar() {
           {events.map((item, i) => (
             <Flex
               key={i}
-              vertical
-              justify="center"
-              align="start"
-              className="event"
+              className="fullW event"
+              justify="space-between"
+              align="center"
             >
-              <Typography.Text>{item.title}</Typography.Text>
-              <Typography.Text>{item.date}</Typography.Text>
+              <Flex vertical justify="center" align="start">
+                <Typography.Text>{item.title}</Typography.Text>
+                <Typography.Text>{item.date}</Typography.Text>
+              </Flex>
+              <CloseOutlined
+                className="closeList"
+                onClick={() => {
+                  setData(data.filter((inner) => inner.title != item.title));
+                  setEvents(
+                    events.filter((inner) => inner.title != item.title)
+                  );
+                }}
+              />
             </Flex>
-          )) || <Empty />}
+          ))}
         </Flex>
         <Calendar
           className="cal"

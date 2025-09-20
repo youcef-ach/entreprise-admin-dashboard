@@ -1,0 +1,50 @@
+.statCard {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border-radius: 2px;
+  padding: 8px 0;
+}
+
+.negM {
+  margin-top: -3px;
+}
+
+.lineChartFlex {
+  height: 400px;
+}
+
+.lineChartFlex .dLineContainer {
+  flex-basis: 0;
+  flex-grow: 2;
+  flex-shrink: 1;
+}
+
+.lineChartFlex .statContainer {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.rTransactions {
+  margin: 0 !important;
+  padding: 14px;
+}
+
+.TItem {
+  padding: 14px;
+}
+
+.price {
+  background-color: #4cceac;
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+.dLastContainer {
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+}

@@ -17,6 +17,14 @@ import invoices from "./pages/invoices/invoices";
 import form from "./pages/nUserForm/form";
 import calendar from "./pages/calendar/calendar";
 import calendarLoader from "./Loaders/calendarLoader";
+import faq from "./pages/faq/faq";
+import faqLoader from "./Loaders/faqLoader";
+import bar from "./pages/bar/bar";
+import barLoader from "./Loaders/barLoader";
+import pie from "./pages/pie/pie";
+import pieLoader from "./Loaders/pieLoader";
+import line from "./pages/line/line";
+import lineLoader from "./Loaders/lineLoader";
 
 const { Header, Footer, Content } = Layout;
 
@@ -53,6 +61,26 @@ const myRouter = createBrowserRouter([
         path: "calendar",
         Component: calendar,
         loader: calendarLoader,
+      },
+      {
+        path: "faq",
+        Component: faq,
+        loader: faqLoader,
+      },
+      {
+        path: "bar",
+        Component: bar,
+        loader: barLoader,
+      },
+      {
+        path: "pie",
+        Component: pie,
+        loader: pieLoader,
+      },
+      {
+        path: "line",
+        Component: line,
+        loader: lineLoader,
       },
     ],
   },

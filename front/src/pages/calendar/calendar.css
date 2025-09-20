@@ -4,6 +4,7 @@
   flex-shrink: 0;
   padding: 10px;
   background-color: rgb(20, 20, 20);
+  min-width: 206px;
 }
 
 .cal {
@@ -24,4 +25,27 @@
   padding: 12px;
   background-color: rgb(45, 48, 89);
   cursor: pointer;
+}
+
+.cal .addEvent {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  z-index: 10;
+}
+
+.cal .ant-picker-cell-inner {
+  position: relative;
+}
+
+.cal .addEvent:hover {
+  color: #6870fa;
+}
+
+.listHeader {
+  margin-bottom: 10px;
+}
+
+.closeList:hover {
+  color: #6870fa;
 }

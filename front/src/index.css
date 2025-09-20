@@ -39,3 +39,11 @@ body {
 .subHeaderFlex {
   margin-bottom: 32px;
 }
+
+.darkGrayBg {
+  background-color: rgb(20, 20, 20);
+}
+
+.green {
+  color: #4cceac;
+}

@@ -19,7 +19,7 @@ const { Text } = Typography;
 function sidbar() {
   const menuItems = [
     {
-      label: <a href="#">Dashboard</a>,
+      label: <a href="/">Dashboard</a>,
       icon: <HomeOutlined />,
       key: "1",
     },
@@ -61,7 +61,7 @@ function sidbar() {
           key: "22",
         },
         {
-          label: <a href="#">FAQ page</a>,
+          label: <a href="/faq">FAQ page</a>,
           icon: <QuestionCircleOutlined />,
           key: "23",
         },
@@ -73,17 +73,17 @@ function sidbar() {
       key: "30",
       children: [
         {
-          label: <a href="#">Bar Chart</a>,
+          label: <a href="/bar">Bar Chart</a>,
           icon: <BarChartOutlined />,
           key: "31",
         },
         {
-          label: <a href="#">Pie Chart</a>,
+          label: <a href="/pie">Pie Chart</a>,
           icon: <PieChartOutlined />,
           key: "32",
         },
         {
-          label: <a href="#">Line Chart</a>,
+          label: <a href="/line">Line Chart</a>,
           icon: <LineChartOutlined />,
           key: "33",
         },
