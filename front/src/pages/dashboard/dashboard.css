@@ -4,20 +4,19 @@
   flex-shrink: 1;
   border-radius: 2px;
   padding: 8px 0;
+  min-width: 223px;
 }
 
 .negM {
   margin-top: -3px;
 }
 
-.lineChartFlex {
-  height: 400px;
-}
-
 .lineChartFlex .dLineContainer {
   flex-basis: 0;
   flex-grow: 2;
   flex-shrink: 1;
+  min-width: 550px;
+  height: 400px;
 }
 
 .lineChartFlex .statContainer {
@@ -26,6 +25,8 @@
   flex-shrink: 1;
   overflow-y: scroll;
   overflow-x: hidden;
+  height: 400px;
+  min-width: 337px;
 }
 
 .rTransactions {
@@ -47,4 +48,6 @@
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
+  min-width: 550px;
+  height: 400px;
 }

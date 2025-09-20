@@ -26,7 +26,7 @@ function dashboard() {
           Download Reports
         </Button>
       </Flex>
-      <Flex justify="start" align="center" gap={16}>
+      <Flex justify="start" align="center" gap={16} wrap>
         <Card variant="borderless" className="statCard">
           <Flex justify="space-between" align="stretch">
             <Flex vertical justify="center" align="start" gap={2}>
@@ -123,7 +123,7 @@ function dashboard() {
           </Flex>
         </Card>
       </Flex>
-      <Flex justify="center" align="center" gap={16} className="lineChartFlex">
+      <Flex justify="center" align="center" gap={16} className="lineChartFlex" wrap>
         <div className="dLineContainer fullH darkGrayBg">
           <LineChart showTips={false} data={mockLineData} />
         </div>
@@ -223,7 +223,7 @@ function dashboard() {
           </Flex>
         </Flex>
       </Flex>
-      <Flex justify="center" align="center" gap={16} style={{ height: 400 }}>
+      <Flex justify="center" align="center" gap={16} wrap>
         <div className="dLastContainer fullH darkGrayBg">
           <PieChart showTips={false} data={mockPieData} />
         </div>
