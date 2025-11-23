@@ -1,6 +1,6 @@
 import { Table, Tag, Flex, Typography, Button } from "antd";
 import { useLoaderData } from "react-router-dom";
-import "./team.css";
+import "./Team.css";
 
 const { Title, Text } = Typography;
 
