@@ -6,7 +6,7 @@ import dashboard from "./pages/dashboard/dashboard";
 import global from "./pages/global/global";
 import Head from "./pages/global/nav";
 import Sidbar from "./pages/global/sidbar";
-import "./app.css";
+import "./App.css";
 import dashboardLoader from "./Loaders/dashboardLoader";
 import Team from "./pages/team/Team";
 import teamLoader from "./Loaders/teamLoader";
