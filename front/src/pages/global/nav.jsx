@@ -5,9 +5,15 @@ import {
   UserOutlined,
   SunOutlined,
 } from "@ant-design/icons";
-import "./global.css";
+import "./global.css"
+import { useContext } from "react";
+import { windowCtx } from "../../App";
 
 function header() {
+
+const winWidth = useContext(windowCtx)
+console.log(winWidth)
+
   return (
     <Flex
       justify="space-between"

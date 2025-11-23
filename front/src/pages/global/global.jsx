@@ -5,7 +5,6 @@ function global() {
 
   return (
     <div>
-      
       <Outlet />
     </div>
   );
