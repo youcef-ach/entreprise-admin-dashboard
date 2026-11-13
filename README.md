@@ -1,19 +1,22 @@
 # Enterprise Admin Dashboard — Operations Intelligence & Analytics Console
 
+## Verification scope
+
+The frontend tests use self-contained fixtures. They do not establish that the production dashboard or API integrations work. A production build and browser workflow checks are separate requirements.
+
 [![React](https://img.shields.io/badge/React-19.1+-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
 [![React Router](https://img.shields.io/badge/React_Router-v7.9+-CA4245?style=flat&logo=react-router&logoColor=white)](https://reactrouter.com/)
 [![Ant Design](https://img.shields.io/badge/Ant_Design-5.27+-0170FE?style=flat&logo=ant-design&logoColor=white)](https://ant.design/)
 [![AntV G2](https://img.shields.io/badge/AntV_G2-5.4+-FF6A00?style=flat)](https://g2.antv.antgroup.com/)
 [![Vite](https://img.shields.io/badge/Vite-7.1+-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-An enterprise-grade administrative management and business intelligence dashboard. Built with **React 19**, **React Router v7**, **Ant Design 5**, and the **AntV G2 Grammar of Graphics**, the platform delivers real-time operational monitoring, multi-tier workforce directory management, financial invoicing ledgers, and advanced statistical data visualizations.
+An administrative dashboard prototype for exploring business interfaces and data visualization. Built with **React 19**, **React Router v7**, **Ant Design 5**, and the **AntV G2 Grammar of Graphics**, the interface includes operational summaries, a workforce directory, invoice views and statistical charts. Live operational reliability has not been established.
 
 ---
 
 ## Architecture Overview
 
-The system utilizes an asynchronous route loader pattern powered by **React Router v7**, decoupling data resolution from component rendering to guarantee zero layout shifts across deep views:
+The system utilizes an asynchronous route loader pattern powered by **React Router v7**, decoupling data resolution from component rendering to resolve route data separately from component rendering; layout stability has not been measured:
 
 ```mermaid
 graph TD
@@ -139,7 +142,7 @@ npm run preview
 
 ## Automated Test Suite
 
-The test suite validates data schemas, role distribution math, financial aggregation accuracy, and AntV series formatting:
+The fixture tests check sample data shapes, role distribution arithmetic, financial aggregation and chart series formatting. They do not validate live dashboard data:
 
 ```bash
 npm test
@@ -160,5 +163,5 @@ npm test
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+No repository license has been specified. Third-party dependencies, brands and assets retain their respective terms.
 
